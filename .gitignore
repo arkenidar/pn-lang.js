@@ -1,1 +1,4 @@
 /build/
+# g++ -Wall -o "%e" "%f" # from GeanyIDE
+/core/parse
+/core/*.o
