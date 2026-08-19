@@ -1,6 +1,6 @@
 
 var write_line = console.log
-var program_test_1 = ' @write-line "hello dear friends \\" \\n \\ \\\\ \\ \\" " '
+var program_test_1 = ' @write-line "hello dear friends \\\\" \\n \\ \\\\ \\ \\" " '
 
 var mode=''
 var token=''
@@ -18,7 +18,7 @@ for(var i=0; i<program.length; i++){
 		if(character=='@' || character=='"')
 			{ mode=character ; continue }
 	
-	if(!escaping && character=='\\' && ['\\','"','n'].indexOf(next_character) != -1 )
+	if(!escaping && character=='\\' && next_character=='"' )
 		{ escaping=true ; continue }
 
 	var stop=mode=='"' && character=='"' && !escaping
@@ -28,10 +28,8 @@ for(var i=0; i<program.length; i++){
 		mode='' ; token=''
 	}
 
-	if(escaping && character=='\\') character='\\'
-	if(escaping && character=='"') character='"'
-	if(escaping && character=='n') character='\n'
 	if(mode!='') token += character
 	escaping=false
 }
 write_line(list)
+write_line(list[1][1])
