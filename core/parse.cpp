@@ -17,7 +17,7 @@ std::vector<mode_token> parse(std::string program)
 	std::string token = "";
 	std::vector<mode_token> list = {};
 	bool escaping = false;
-	for (int i = 0; i < program.length(); i++)
+	for (unsigned i = 0; i < program.length(); i++)
 	{
 		char character = program[i];
 		char next_character = '\0';
