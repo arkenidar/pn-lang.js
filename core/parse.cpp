@@ -65,8 +65,16 @@ void cout_token_list(std::vector<mode_token> list)
 
 int main()
 {
-	std::string program = R"( @write-line "hello dear friends ! escaped quote: \" ... " )";
+	std::string program = R"( @write-line "hello dear friends ! escaped quote: \" ... "
+	@write-line "testing multiple lines"
+	@write-line "testing multi-line string :
+1- line 1
+2- line 2
+3- line 3"
+	)";
 	std::vector<mode_token> list = parse(program);
 	cout_token_list(list);
+	std::cout << "------------------------" << std::endl;
 	std::cout << list[1].token << std::endl;
+	std::cout << list[5].token << std::endl;
 }
